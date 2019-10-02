@@ -18,8 +18,9 @@ weatherForm.addEventListener('submit', e => {
       if (data.error) {
         messageOne.textContent = data.error;
       } else {
+        const { summary, temperature } = data.forecastData;
         messageOne.textContent = data.location;
-        messageTwo.textContent = data.forecastData.summary;
+        messageTwo.textContent = `${temperature}°C; ${summary}`;
       }
     });
   });
