@@ -53,9 +53,7 @@ app.get('/help/*', (req, res) => {
 app.get('/weather', cors(), (req, res) => {
   const address = req.query.address;
   if(!address) {
-    res.status(400).send({
-      error: 'You must provide a search term'
-    });
+    res.status(400).send();
     return;
   }
 
