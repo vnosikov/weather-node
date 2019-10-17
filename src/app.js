@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const hbs = require('hbs');
+var cors = require('cors');
 
 const geocode = require('./geocode');
 const forecast = require('./forecast');
@@ -49,7 +50,7 @@ app.get('/help/*', (req, res) => {
   });
 });
 
-app.get('/weather', (req, res) => {
+app.get('/weather', cors(), (req, res) => {
   const address = req.query.address;
   if(!address) {
     res.send({
